@@ -1,0 +1,26 @@
+name: netsec_rep
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pandas
+  - numpy
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - tqdm
+  - pyyaml
+  - jupyter
+  - ipykernel
+  - pip
+  - pip:
+    - torch>=2.1.0
+    - torchvision
+    - torchaudio
+    - transformers>=4.36.0
+    - datasets>=2.14.0
+    - accelerate>=0.25.0
+    - umap-learn>=0.5.4

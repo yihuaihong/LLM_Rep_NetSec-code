@@ -1,0 +1,29 @@
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Large artefacts — never push
+results/representations/
+results/probes/
+*.pt
+*.pkl
+
+# Slurm logs
+slurm_logs/*.err
+slurm_logs/*.out
+slurm_logs/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+wandb/
+
+# Local secrets
+.env
+*.token
+.git-credentials*
+pat.txt
+*pat*.txt
+secrets/

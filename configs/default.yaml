@@ -1,0 +1,43 @@
+model:
+  name: "Meta-Llama-3-8B-Instruct"  # local dir name under cache_dir
+  cache_dir: "/scratch/yh6210/transformers"
+  dtype: "float16"
+  device: "cuda"
+  # Available models on this machine:
+  # - Meta-Llama-3-8B-Instruct
+  # - gemma-2-9b-it / gemma-2-2b-it
+  # - Mistral-7B-Instruct-v0.3
+  # - Qwen3-8B
+  # - DeepSeek-R1-Distill-Llama-8B / DeepSeek-R1-Distill-Qwen-7B
+  # - Llama-2-7b-chat-hf
+  # - gpt2
+
+data:
+  datasets:
+    - name: "cicids2017"
+      path: "/scratch/yh6210/datasets/LLM_Rep_NetSec_datasets/cicids2017/"
+    - name: "unsw_nb15"
+      path: "/scratch/yh6210/datasets/LLM_Rep_NetSec_datasets/unsw_nb15/"
+  text_format: "natural_language"  # or "key_value"
+  max_samples_per_class: 5000
+  holdout_attack_types:
+    cicids2017: ["Heartbleed", "Infiltration", "Bot"]
+    unsw_nb15: ["Shellcode", "Worms", "Backdoor"]
+
+representation:
+  layers: "all"  # or list of ints
+  token_position: "last"  # "last", "mean", "first"
+  batch_size: 32
+  max_seq_length: 512
+  cache_dir: "results/representations/"
+
+probe:
+  type: "logistic_regression"  # or "linear", "mlp"
+  cv_folds: 5
+  regularization: 1.0
+
+visualization:
+  methods: ["pca", "tsne", "umap"]
+  tsne_perplexity: 30
+  umap_n_neighbors: 15
+  figure_dir: "results/figures/"
