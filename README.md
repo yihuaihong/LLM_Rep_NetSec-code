@@ -1,6 +1,6 @@
 # LLM_Rep_NetSec — Code
 
-Code and SLURM submission scripts for the paper **"When 99% Probe Accuracy Lies: LLMs Have No Generalizable Network-Attack Concept"** (NeurIPS 2026 submission).
+Code for the paper **"When 99% Probe Accuracy Lies: LLMs Have No Generalizable Network-Attack Concept"**.
 
 The paper runs a four-test battery (baseline equivalence, decomposition, causal effect, cross-dataset transfer) on LLM hidden-state probe directions for a network-flow attack-classification task across 4 LLMs and 5 datasets.
 
